@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nota Pembelian</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Form Nota Pembelian</h2>
+      <form id="notaForm">
+        <label for="namaBarang">Nama Barang:</label>
+        <input type="text" id="namaBarang" required />
+
+        <label for="kodeKaos">Kode Kaos:</label>
+        <input type="text" id="kodeKaos" required />
+
+        <label for="jumlah">Jumlah:</label>
+        <input type="number" id="jumlah" required />
+
+        <label for="harga">Harga:</label>
+        <input type="number" id="harga" required />
+
+        <label for="diskon">Diskon (%):</label>
+        <input type="number" id="diskon" required min="0" />
+
+        <label for="statusBayar">Status Pembayaran:</label>
+        <select id="statusBayar" required>
+          <option value="">Pilih Status</option>
+          <option value="Lunas">Lunas</option>
+          <option value="DP">DP</option>
+        </select>
+
+        <div id="uangMukaContainer" class="hidden">
+          <label for="uangMuka">Uang Muka:</label>
+          <input type="number" id="uangMuka" required min="0" />
+        </div>
+
+        <button type="button" id="buatNota">Buat Nota</button>
+      </form>
+      <div class="card">
+      <div id="notaTable" class="hidden">
+        <h1 class="nota">Nota Pembelian</h1>
+        <div class="header">
+          <div class="alamat">
+            <p>Alamat: Jalan Contoh No. 123 <br> Nomor: 08123456789</p>
+            <p></p>
+          </div>
+          <div class="logo-container">
+            <img
+              id="logo"
+              class="logo"
+              src="image/kurawa logo b.png"
+              alt="gambar"
+            />
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama Barang</th>
+              <th>Kode Kaos</th>
+              <th>Jumlah</th>
+              <th>Harga</th>
+              <th>Total Harga</th>
+              <th>Status Bayar</th>
+              <th>Uang Muka</th>
+            </tr>
+          </thead>
+          <tbody id="notaBody">
+            <!-- Data will be inserted here -->
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5">Total Harga:</td>
+              <td id="totalHarga" class="total-column">0</td>
+              <td colspan="2"></td>
+            </tr>
+            <tr>
+              <td colspan="5">Diskon:</td>
+              <td id="diskonColumn" class="total-column">0</td>
+              <td colspan="2"></td>
+            </tr>
+            <tr>
+              <td colspan="5">Total Setelah Diskon:</td>
+              <td id="totalSetelahDiskon" class="total-column">0</td>
+              <td colspan="2"></td>
+            </tr>
+            <tr>
+              <td colspan="5">Total Uang Muka (DP):</td>
+              <td colspan="2"></td>
+              <td id="totalDP" class="total-column">0</td>
+            </tr>
+            <tr>
+              <td colspan="5">Total Kekurangan Biaya:</td>
+              <td colspan="2"></td>
+              <td id="totalKekurangan" class="total-column">0</td>
+            </tr>
+          </tfoot>
+        </table>
+        <p class="warning">Harap tetap menyimpan nota hingga <br>barang samapai ke tempat tujuan!!</p>
+    </div>
+      </div>
+      <button id="downloadButton" class="hidden">Download Nota</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
